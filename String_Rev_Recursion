@@ -1,0 +1,32 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+#include <string.h>
+
+void rev_string(char *str, int end, int begin) {
+    char single_char;
+    single_char = str[end];
+    str[end] = str[begin];
+    str[begin] = single_char;
+    begin++;
+    end--;
+    if(begin<end) {
+        rev_string(str,end, begin);
+    }
+}
+int main()
+{
+    char str[] = "Hello World";
+    int last_char = 0;
+    last_char = strlen(str)-1;
+    rev_string(str,last_char,0);
+    printf("Rev string:%s\n",str);
+
+    return 0;
+}
